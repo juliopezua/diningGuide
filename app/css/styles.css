@@ -131,6 +131,17 @@ p {
   margin-top: 2em;
 }
 
+.recipes-container {
+  padding: 10px 0px;
+  margin: 20px 0px;
+  display: flex;
+}
+
+.recipes-details {
+  padding: 0px 25px;
+
+}
+
 @media (min-width: 60.25em) {
   .article {
     width: 35em;

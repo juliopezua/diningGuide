@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var sftp = require('gulp-sftp');
 
 var sassOptions = {
   errLogToConsole: true,
@@ -30,5 +31,18 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(sassOutput))
     .pipe(browserSync.stream());
 });
+
+
+gulp.task ('deploy', function(){
+    return gulp.src('./app/**/*')
+    .pipe(sftp({
+        host: 'oit2.scps.nyu.edu';
+        user: 'pezuaj',
+        pass: 'jp123890',
+        remotePath: '/home/p/pezuaj/web'
+
+    }))
+
+
 
 gulp.task('default', ['serve']);
